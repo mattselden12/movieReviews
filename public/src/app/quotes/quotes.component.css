@@ -94,7 +94,7 @@ table{
 }
 
 .filmtitle{
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: Georgia, serif;
 }
 
 .linkbutton {
@@ -137,11 +137,11 @@ table{
 }
 
 .comic{
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: Georgia, serif;
 }
 
 .monospace{
-    font-family: "Courier New", Courier, monospace	
+    font-family: "Courier New", Courier, monospace;
 }
 
 .navbuttons{

@@ -7,10 +7,10 @@
     <p *ngFor="let error of errors"> {{ error }} </p>
     <div class="form-group">
       <label>Name:</label>
-      <input type="text" class="form-control" name="aname" [(ngModel)]="editedAuthor.aname">
+      <input type="text" class="form-control" name="aname" required minlength="3" [(ngModel)]="editedAuthor.aname" #movietitle="ngModel">
     </div>
     <button [routerLink]="['/']" class="btn canc">Cancel</button>
-    <button class="btn sub">Submit</button>
+    <button class="btn sub" *ngIf="movietitle.valid">Submit</button>
   </form>
 </div>
 

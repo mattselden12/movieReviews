@@ -7,9 +7,9 @@
   <form (submit)="submitQuote()">
     <div class="form-group">
       <label>Review:</label>
-      <input type="text" class="form-control" name="name" [(ngModel)]="newquote.quote"/>
+      <input type="text" class="form-control" name="name" required minlength="3" [(ngModel)]="newquote.quote" #quote="ngModel"/>
     </div>
     <button [routerLink]="['/quotes/'+authorId]" class="btn canc">Cancel</button>
-    <button type="submit" class="btn sub">Submit</button>
+    <button type="submit" class="btn sub" *ngIf="quote.valid">Submit</button>
   </form>
 </div>
