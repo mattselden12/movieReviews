@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit {
-  newAuthor: Object;
+  newMovie: Object;
   errors: any[];
   constructor(
     private _httpService: HttpService,
@@ -16,13 +16,13 @@ export class NewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.newAuthor = {
+    this.newMovie = {
       aname: ""
     }
   }
 
-  createAuthor() {
-    let observable = this._httpService.newAuthor(this.newAuthor);
+  createMovie() {
+    let observable = this._httpService.newMovie(this.newMovie);
     observable.subscribe(data => {
       if (data['status'] === "bad") {
         this.errors = [];

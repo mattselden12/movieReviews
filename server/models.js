@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
-const AuthorSchema = new mongoose.Schema({
-    aname: {
+const MovieSchema = new mongoose.Schema({
+    mtitle: {
         type: String,
-        required: [true, "The author must have a name."],
-        minlength: [3, "The author's name should be at least three characters long"]
+        required: [true, "The movie must have a title."],
+        minlength: [3, "The movie's title should be at least three characters long"]
         },
-    quotes: [{
-        quote: {
+    mreviews: [{
+        review: {
             type: String,
-            required: [true, "You can't submit an empty quote."],
-            minlength: [3, "Your quote must have at least three characters."]
+            required: [true, "You can't submit an empty review."],
+            minlength: [3, "Your review must have at least three characters."]
         },
         votes: {
             type: Number,
@@ -18,6 +18,6 @@ const AuthorSchema = new mongoose.Schema({
     }]
 }, { timestamps: true })
 
-mongoose.connect("mongodb://localhost:27017/authordb4", { useNewUrlParser: true }, (errs) => console.log(errs ? errs : "db is lookin good"));
+mongoose.connect("mongodb://localhost:27017/moviesdb", { useNewUrlParser: true }, (errs) => console.log(errs ? errs : "db is lookin good"));
 
-module.exports = mongoose.model("Author", AuthorSchema)
+module.exports = mongoose.model("Movie", MovieSchema)

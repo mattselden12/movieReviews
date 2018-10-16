@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { QuotesComponent } from './quotes/quotes.component';
 import { AddqComponent } from './addq/addq.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddqComponent } from './addq/addq.component';
     NewComponent,
     EditComponent,
     QuotesComponent,
-    AddqComponent
+    AddqComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

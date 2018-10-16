@@ -2,14 +2,14 @@
   <div class="navbuttons">
     <a class="linkbutton" [routerLink]="['/']">Home</a>
   </div>
-  <h6>Provide a review for <span class="filmtitle">{{ thisAuthor.aname }}</span>.</h6>
+  <h6>Provide a review for <span class="filmtitle">{{ thisMovie.mtitle }}</span>.</h6>
   <p *ngFor="let error of errors"> {{ error }} </p>
-  <form (submit)="submitQuote()">
+  <form (submit)="submitReview()">
     <div class="form-group">
       <label>Review:</label>
-      <input type="text" class="form-control" name="name" required minlength="3" [(ngModel)]="newquote.quote" #quote="ngModel"/>
+      <input type="text" class="form-control" name="name" required minlength="3" [(ngModel)]="newreview.review" #review="ngModel"/>
     </div>
-    <button [routerLink]="['/quotes/'+authorId]" class="btn canc">Cancel</button>
-    <button type="submit" class="btn sub" *ngIf="quote.valid">Submit</button>
+    <button [routerLink]="['/reviews/'+movieId]" class="btn canc">Cancel</button>
+    <button type="submit" class="btn sub" *ngIf="review.valid">Submit</button>
   </form>
 </div>

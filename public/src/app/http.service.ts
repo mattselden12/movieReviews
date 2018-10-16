@@ -8,22 +8,22 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
-  newAuthor(authorInfo) {
-    return this._http.post('/authors', authorInfo);
+  newMovie(movieInfo) {
+    return this._http.post('/movies', movieInfo);
   }
-  editAuthor(authorInfo, authorid) {
-    return this._http.put(`/authors/${authorid}`, authorInfo);
+  editMovie(movieInfo, movieid) {
+    return this._http.put(`/movies/${movieid}`, movieInfo);
   }
-  deleteAuthor(authorid) {
-    return this._http.delete(`/authors/${authorid}`);
+  deleteMovie(movieid) {
+    return this._http.delete(`/movies/${movieid}`);
   }
-  allAuthors() {
-    return this._http.get('/authors');
+  allMovies() {
+    return this._http.get('/movies');
   }
-  thisAuthor(authorid) {
-    return this._http.get(`/authors/${authorid}`);
+  thisMovie(movieid) {
+    return this._http.get(`/movies/${movieid}`);
   }
-  addQuote(quote, authorid) {
-    return this._http.post(`/api/quotes/${authorid}`, quote);
+  addReview(review, movieid) {
+    return this._http.post(`/api/reviews/${movieid}`, review);
   }
 }

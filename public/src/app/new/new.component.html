@@ -4,13 +4,13 @@
   </div>
   <h6>Add a New Movie.</h6>
   <p *ngFor="let error of errors"> {{ error }} </p>
-  <form (submit)="createAuthor()">
+  <form (submit)="createMovie()">
     <div class="form-group">
-      <label>Name:</label>
-      <input type="text" class="form-control" name="name" required minlength="3" [(ngModel)]="newAuthor.aname" #aname="ngModel"
+      <label>Title:</label>
+      <input type="text" class="form-control" name="name" required minlength="3" [(ngModel)]="newMovie.mtitle" #movietitle="ngModel"
       />
     </div>
     <button [routerLink]="['/']" class="btn canc">Cancel</button>
-    <button class="btn sub" *ngIf="aname.valid">Submit</button>
+    <button class="btn sub" *ngIf="movietitle.valid">Submit</button>
   </form>
 </div>

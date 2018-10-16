@@ -1,0 +1,28 @@
+<div class="component">
+  <div class="navbuttons">
+    <a class="linkbutton" [routerLink]="['/']">Home</a>
+    <a class="linkbutton" [routerLink]="['/write/'+movieId]">Add a Review!</a>
+  </div>
+  <h6>Reviews for
+    <span class="filmtitle">{{ thisMovie.mtitle }}</span>
+  </h6>
+  <p *ngFor="let error of errors"> {{ error }} </p>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th class="reviewspace">Review</th>
+        <th>Votes</th>
+        <th class="buttons">Actions available</th>
+      </tr>
+      <tr *ngFor="let review of thisMovie.mreviews">
+        <td class="reviewspace monospace">"{{ review.review }}"</td>
+        <td>{{ review.votes }}</td>
+        <td class="buttons">
+          <button (click)="voteUp(review._id)" class="btn btn-view">Vote up</button>
+          <button (click)="voteDown(review._id)" type="button" class="btn btn-edit">Vote down</button>
+          <button (click)="deleteReview(review._id)" type="button" class="btn btn-delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -7,31 +7,31 @@ import { HttpService } from '../http.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  allAuthors: any[];
+  allMovies: any[];
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
-    this.fetchAuthors();
+    this.fetchMovies();
   }
 
-  fetchAuthors() {
-    let obs = this._httpService.allAuthors();
+  fetchMovies() {
+    let obs = this._httpService.allMovies();
     obs.subscribe(data => {
       if (data['status'] === "good") {
-        this.allAuthors = data['content'];
+        this.allMovies = data['content'];
       }
       else {
 
       }
     })
   }
-  deleteAuthor(authorid) {
-    for (let i = 0; i < this.allAuthors.length; i++) {
-      if (this.allAuthors[i]['_id'] == authorid) {
-        this.allAuthors.splice(i, 1);
+  deleteMovie(movieid) {
+    for (let i = 0; i < this.allMovies.length; i++) {
+      if (this.allMovies[i]['_id'] == movieid) {
+        this.allMovies.splice(i, 1);
       }
     }
-    let obs = this._httpService.deleteAuthor(authorid);
+    let obs = this._httpService.deleteMovie(movieid);
     obs.subscribe(data => console.log(data));
   }
 

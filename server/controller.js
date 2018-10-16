@@ -1,6 +1,6 @@
-const Author = require("./models.js");
+const Movie = require("./models.js");
 module.exports = {
-    allAuthors: (req, res) => Author
+    allMovies: (req, res) => Movie
         .find({})
         .sort('field aname')
         .then(data => res.json(
@@ -9,7 +9,7 @@ module.exports = {
         .catch(errs => res.json(
             { status: "bad", content: errs }
         )),
-    thisAuthor: (req, res) => Author
+    thisMovie: (req, res) => Movie
         .findById(req.params.id)
         .then(data => res.json(
             { status: "good", content: data }
@@ -17,15 +17,15 @@ module.exports = {
         .catch(errs => res.json(
             { status: "bad", content: errs }
         )),
-    createAuthor: (req, res) => Author
+    createMovie: (req, res) => Movie
         .create(req.body)
-        .then(data => console.log("createAuthor route worked") || res.json(
+        .then(data => console.log("createMovie route worked") || res.json(
             { status: "good", content: data }
         ))
-        .catch(errs => console.log("createAuthor route error") || res.json(
+        .catch(errs => console.log("createMovie route error") || res.json(
             { status: "bad", content: errs }
         )),
-    updateAuthor: (req, res) => Author
+    updateMovie: (req, res) => Movie
         .findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         .then(data => res.json(
             { status: "good", content: data }
@@ -33,7 +33,7 @@ module.exports = {
         .catch(errs => res.json(
             { status: "bad", content: errs }
         )),
-    deleteAuthor: (req, res) => Author
+    deleteMovie: (req, res) => Movie
         .findByIdAndRemove(req.params.id)
         .then(data => res.json(
             { status: "good", content: data }
@@ -42,24 +42,24 @@ module.exports = {
             { status: "bad", content: errs }
         )),
 
-    addQuote: (req, res) => Author.findById(req.params.id)
+    addReview: (req, res) => Movie.findById(req.params.id)
         .then(data => {
-            let curAuth = data;
-            curAuth.quotes.push(req.body);
-            curAuth.save(function (err, data) {
+            let curMov = data;
+            curMov.mreviews.push(req.body);
+            curMov.save(function (err, data) {
                 if (err) {
                     console.log(err);
                     res.json({ status: "bad", content: err })
                 }
                 else {
                     console.log(data);
-                    console.log(curAuth);
+                    console.log(curMov);
                     res.json({ status: "good", content: data })
 
                 }
             })
         })
         .catch(errs => res.json(
-            { status: "bad", content: data }
+            { status: "bad", content: errs }
         ))
 }

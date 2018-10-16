@@ -8,12 +8,12 @@
         <th>Movie</th>
         <th class="buttons">Actions available</th>
       </tr>
-      <tr *ngFor="let author of allAuthors">
-        <td class="filmtitle">{{ author.aname }}</td>
+      <tr *ngFor="let movie of allMovies">
+        <td class="filmtitle">{{ movie.mtitle }}</td>
         <td class="buttons">
-          <button [routerLink]="['/quotes/'+author._id]" class="btn btn-view">View Reviews</button>
-          <button [routerLink]="['/edit/'+author._id]" type="button" class="btn btn-edit">Edit</button>
-          <button (click)="deleteAuthor(author._id)" type="button" class="btn btn-delete">Delete</button>
+          <button [routerLink]="['/reviews/'+movie._id]" class="btn btn-view">View Reviews</button>
+          <button [routerLink]="['/edit/'+movie._id]" type="button" class="btn btn-edit">Edit</button>
+          <button (click)="deleteMovie(movie._id)" type="button" class="btn btn-delete">Delete</button>
         </td>
       </tr>
     </tbody>

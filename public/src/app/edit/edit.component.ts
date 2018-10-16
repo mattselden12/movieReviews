@@ -8,8 +8,8 @@ import { HttpService } from '../http.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  authorId: String;
-  editedAuthor: Object;
+  movieId: String;
+  editedMovie: Object;
   errors: any[];
   found: Boolean;
 
@@ -21,18 +21,18 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.found = true;
-    this.editedAuthor = { aname: "" };
+    this.editedMovie = { mtitle: "" };
     this._route.params.subscribe((params: Params) => {
-      this.authorId = params['id'];
+      this.movieId = params['id'];
     })
-    this.fetchAuthor();
+    this.fetchMovie();
   }
 
-  fetchAuthor() {
-    let obs = this._httpService.thisAuthor(this.authorId);
+  fetchMovie() {
+    let obs = this._httpService.thisMovie(this.movieId);
     obs.subscribe(data => {
       if (data['status'] === "good") {
-        this.editedAuthor = { aname: data['content']['aname'] };
+        this.editedMovie = { mtitle: data['content']['mtitle'] };
         console.log("fetched");
       } else {
         this.found = false;
@@ -41,8 +41,8 @@ export class EditComponent implements OnInit {
     })
   }
 
-  updateAuthor() {
-    let obs = this._httpService.editAuthor(this.editedAuthor, this.authorId);
+  updateMovie() {
+    let obs = this._httpService.editMovie(this.editedMovie, this.movieId);
     obs.subscribe(data => {
       if (data['status'] === "bad") {
         this.errors = [];

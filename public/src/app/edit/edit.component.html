@@ -3,18 +3,13 @@
     <a class="linkbutton" [routerLink]="['/']">Home</a>
   </div>
   <h6>Edit this Movie Title.</h6>
-  <form (submit)="updateAuthor()">
+  <form (submit)="updateMovie()">
     <p *ngFor="let error of errors"> {{ error }} </p>
     <div class="form-group">
-      <label>Name:</label>
-      <input type="text" class="form-control" name="aname" required minlength="3" [(ngModel)]="editedAuthor.aname" #movietitle="ngModel">
+      <label>Title:</label>
+      <input type="text" class="form-control" name="mtitle" required minlength="3" [(ngModel)]="editedMovie.mtitle" #movietitle="ngModel">
     </div>
     <button [routerLink]="['/']" class="btn canc">Cancel</button>
     <button class="btn sub" *ngIf="movietitle.valid">Submit</button>
   </form>
-</div>
-
-<div *ngIf="found == false" class="component">
-  <h4>We're sorry, but we could not find the author you are looking for. Would you like to add this author to our database?</h4>
-  <a [routerLink]="['/new']">Add an author</a>
 </div>
