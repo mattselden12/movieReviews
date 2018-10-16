@@ -1,0 +1,15 @@
+<div class="component">
+  <div class="navbuttons">
+    <a class="linkbutton" [routerLink]="['/']">Home</a>
+  </div>
+  <h6>Provide a review for <span class="filmtitle">{{ thisAuthor.aname }}</span>.</h6>
+  <p *ngFor="let error of errors"> {{ error }} </p>
+  <form (submit)="submitQuote()">
+    <div class="form-group">
+      <label>Review:</label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="newquote.quote"/>
+    </div>
+    <button [routerLink]="['/quotes/'+authorId]" class="btn canc">Cancel</button>
+    <button type="submit" class="btn sub">Submit</button>
+  </form>
+</div>

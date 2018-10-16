@@ -1,0 +1,21 @@
+<div class="component">
+  <div class="navbuttons">
+    <a [routerLink]="['/new']" class="linkbutton">Add a Movie to be Reviewed!</a>
+  </div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Movie</th>
+        <th class="buttons">Actions available</th>
+      </tr>
+      <tr *ngFor="let author of allAuthors">
+        <td class="filmtitle">{{ author.aname }}</td>
+        <td class="buttons">
+          <button [routerLink]="['/quotes/'+author._id]" class="btn btn-view">View Reviews</button>
+          <button [routerLink]="['/edit/'+author._id]" type="button" class="btn btn-edit">Edit</button>
+          <button (click)="deleteAuthor(author._id)" type="button" class="btn btn-delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

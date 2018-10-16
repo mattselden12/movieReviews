@@ -1,0 +1,20 @@
+<div *ngIf="found == true" class="component">
+  <div class="navbuttons">
+    <a class="linkbutton" [routerLink]="['/']">Home</a>
+  </div>
+  <h6>Edit this Movie Title.</h6>
+  <form (submit)="updateAuthor()">
+    <p *ngFor="let error of errors"> {{ error }} </p>
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" class="form-control" name="aname" [(ngModel)]="editedAuthor.aname">
+    </div>
+    <button [routerLink]="['/']" class="btn canc">Cancel</button>
+    <button class="btn sub">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="found == false" class="component">
+  <h4>We're sorry, but we could not find the author you are looking for. Would you like to add this author to our database?</h4>
+  <a [routerLink]="['/new']">Add an author</a>
+</div>

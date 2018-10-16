@@ -1,0 +1,22 @@
+*{
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#container{
+    background: url(../assets/audience-auditorium-back-view-713149.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 800px
+}
+
+h1{
+    font-weight: 600;
+    text-align: center;
+    color: #3E8EDE;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-top: 5%;
+    background-color: black;
+    margin-bottom: 0%;
+}

@@ -1,0 +1,16 @@
+<div class="component">
+  <div class="navbuttons">
+    <a class="linkbutton" [routerLink]="['/']">Home</a>
+  </div>
+  <h6>Add a New Movie.</h6>
+  <p *ngFor="let error of errors"> {{ error }} </p>
+  <form (submit)="createAuthor()">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" class="form-control" name="name" required minlength="3" [(ngModel)]="newAuthor.aname" #aname="ngModel"
+      />
+    </div>
+    <button [routerLink]="['/']" class="btn canc">Cancel</button>
+    <button class="btn sub" *ngIf="aname.valid">Submit</button>
+  </form>
+</div>
