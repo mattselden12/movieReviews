@@ -14,15 +14,16 @@ h6{
 }
 
 .table-striped td{
-    border-bottom: 2px dotted rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
     color: white;
+    background-color: rgba(0, 0, 0, 0.2)
 }
 
 .table-striped th{
     border-bottom: 2px solid white;
     border-top: none;
     color:  rgb(253, 173, 0);
-    background-color: rgba(0, 0, 0, 0.5)
+    background-color: rgba(0, 0, 0, 0.7)
 }
 
 table{
